@@ -7,37 +7,33 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.hibernate.envers.Audited;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Audited
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(name = "TRIGGERS")
-public class Trigger {
+public class Trigger extends CompositelyIdentifiedEntity<Trigger.TriggerPK> {
 //    private String eventType;
 //    private NotificationType notificationType;
     private boolean active;
 
-    protected TriggerPK pk;
-
-    @EmbeddedId
-    public TriggerPK getPk() {
-        return pk;
-    }
-
-    public void setPk(TriggerPK pk) {
-        this.pk = pk;
-    }
+//    protected TriggerPK pk;
+//
+//    @EmbeddedId
+//    public TriggerPK getPk() {
+//        return pk;
+//    }
+//
+//    public void setPk(TriggerPK pk) {
+//        this.pk = pk;
+//    }
 
     private Trigger() {
     }
